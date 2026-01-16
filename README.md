@@ -1,10 +1,10 @@
 # R VS Code Setup Template
 
-Template repository for configuring VS Code for R development on macOS Apple Silicon, with Claude Code MCP integration.
+Template for configuring VS Code for R development on macOS Apple Silicon. Includes setup instructions optimized for two AI coding assistants.
 
 ## Prerequisites
 
-- **R** (4.5+) - Install via `brew install r`
+- **R** (4.5+) - `brew install r`
 - **VS Code** - [Download](https://code.visualstudio.com/)
 - **Homebrew** - [Install](https://brew.sh/)
 
@@ -12,39 +12,33 @@ Template repository for configuring VS Code for R development on macOS Apple Sil
 
 1. Open this folder in VS Code
 2. Install recommended extensions when prompted
-3. Follow `codex/vscode-r-setup.md` for full setup
-4. Verify with `codex/validation.md`
+3. Choose your AI tool and follow the corresponding setup guide
 
-> **Tip:** If this repo lives inside a parent folder, enable subfolder git detection in VS Code:
+> **Tip:** If this repo lives inside a parent folder, enable subfolder git detection:
 > ```json
 > "git.autoRepositoryDetection": "subFolders"
 > ```
 
-## Documentation
+## Setup Guides
 
-### Primary (Use These)
-
-| File | Purpose |
-|------|---------|
-| `codex/vscode-r-setup.md` | Step-by-step setup instructions |
-| `codex/validation.md` | Verification checklist |
-| `codex/troubleshooting.md` | Common fixes |
-
-### Reference
-
-| File | Purpose |
-|------|---------|
-| `claude/r-setup-notes.md` | GPU acceleration, ClaudeR MCP setup, detailed notes |
-| `claude/install_clauder.R` | R script for ClaudeR installation |
+| AI Tool | Setup Guide | Description |
+|---------|-------------|-------------|
+| **Codex CLI** | `codex/vscode-r-setup.md` | Streamlined setup with validation & troubleshooting |
+| **Claude Code** | `claude/r-setup-notes.md` | Detailed notes with GPU acceleration & MCP integration |
 
 ## Structure
 
 ```
-brennan-proj/
+r-vscode-setup/
 ├── .vscode/           # VS Code settings & extension recommendations
-├── codex/             # Setup instructions (machine-specific)
-├── claude/            # Reference documentation
-└── README.md          # This file
+├── codex/             # Codex CLI optimized instructions
+│   ├── vscode-r-setup.md
+│   ├── validation.md
+│   └── troubleshooting.md
+├── claude/            # Claude Code optimized instructions
+│   ├── r-setup-notes.md
+│   └── install_clauder.R
+└── README.md
 ```
 
 ## Key Configuration
@@ -52,24 +46,20 @@ brennan-proj/
 | Item | Path/Value |
 |------|------------|
 | R executable | `/opt/homebrew/bin/R` |
-| R version | 4.5.2 |
-| ClaudeR MCP | `claude mcp add r-studio` (already configured) |
+| R version | 4.5+ |
 | VS Code extensions | REditorSupport.r, RDebugger.r-debugger |
 
-## For AI Agents
+## GPU Acceleration
 
-**Use `codex/` for setup instructions** - it contains the machine-specific, refined version.
-
-### MCP Tools Available
-
-When the R MCP server is running, these tools are available:
-- `mcp__r-studio__execute_r` - Run R code
-- `mcp__r-studio__execute_r_with_plot` - Run R code that generates plots
-- `mcp__r-studio__get_r_info` - Get R environment info
-- `mcp__r-studio__get_active_document` - Get active RStudio document
-
-### GPU Acceleration
-
-See `claude/r-setup-notes.md` for torch vs tensorflow guidance. Summary:
+See `claude/r-setup-notes.md` for torch vs tensorflow guidance:
 - **torch**: Best for custom ML models, large matrix ops
 - **tensorflow/keras**: Best for standard deep learning, pre-built architectures
+
+## ClaudeR MCP Integration
+
+To enable R tools in Claude Code:
+```bash
+claude mcp add r-studio
+```
+
+See `claude/r-setup-notes.md` for full setup instructions.
