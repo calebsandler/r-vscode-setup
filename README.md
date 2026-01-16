@@ -38,6 +38,7 @@ r-vscode-setup/
 │   └── troubleshooting.md
 ├── claude/            # Claude Code optimized instructions
 │   ├── r-setup-notes.md
+│   ├── mcp-setup.md
 │   └── install_clauder.R
 └── README.md
 ```
@@ -74,4 +75,4 @@ To enable R tools in Claude Code using ClaudeR:
 claude mcp add r-studio
 ```
 
-See `claude/r-setup-notes.md` for full setup instructions.
+See `claude/mcp-setup.md` for full setup instructions.
