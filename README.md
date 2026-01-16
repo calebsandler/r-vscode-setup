@@ -15,6 +15,11 @@ Template repository for configuring VS Code for R development on macOS Apple Sil
 3. Follow `codex/vscode-r-setup.md` for full setup
 4. Verify with `codex/validation.md`
 
+> **Tip:** If this repo lives inside a parent folder, enable subfolder git detection in VS Code:
+> ```json
+> "git.autoRepositoryDetection": "subFolders"
+> ```
+
 ## Documentation
 
 ### Primary (Use These)
