@@ -9,85 +9,6 @@
 | GCC | 15.2.0 | Package compilation |
 | libomp | - | Parallel processing |
 
-## GPU Acceleration Options
-
-### Limitation
-True CUDA GPU support is not available on macOS. Apple Silicon uses Metal/MPS instead.
-
-### Option 1: torch (PyTorch for R)
-```r
-install.packages("torch")
-```
-
-Example usage:
-```r
-library(torch)
-
-# Check MPS availability
-torch$backends$mps$is_available()
-
-# Create tensors on GPU
-x <- torch_randn(1000, 1000, device = "mps")
-y <- torch_randn(1000, 1000, device = "mps")
-result <- torch_mm(x, y)
-
-# Neural network on GPU
-model <- nn_sequential(
-  nn_linear(784, 256),
-  nn_relu(),
-  nn_linear(256, 10)
-)$to(device = "mps")
-```
-
-**Best for:** Deep learning, neural networks, large matrix operations, custom ML models
-
-### Option 2: tensorflow/keras
-```r
-install.packages("tensorflow")
-install.packages("keras")
-```
-
-Requires Python tensorflow-metal:
-```bash
-pip install tensorflow-metal
-```
-
-Example usage:
-```r
-library(tensorflow)
-library(keras)
-
-# Check GPU detection
-tf$config$list_physical_devices()
-
-# Build model (auto-uses GPU)
-model <- keras_model_sequential() %>%
-  layer_dense(units = 256, activation = "relu", input_shape = c(784)) %>%
-  layer_dropout(rate = 0.4) %>%
-  layer_dense(units = 10, activation = "softmax")
-
-model %>% compile(
-  loss = "categorical_crossentropy",
-  optimizer = "adam",
-  metrics = c("accuracy")
-)
-
-model %>% fit(x_train, y_train, epochs = 10, batch_size = 128)
-```
-
-**Best for:** Standard deep learning, image classification, pre-built architectures
-
-## When GPU Helps
-
-| Task | GPU Benefit |
-|------|-------------|
-| Deep learning / neural nets | High |
-| Large matrix multiplication | High |
-| Monte Carlo simulations | Medium |
-| Standard regression (lm, glm) | Low |
-| Data wrangling (dplyr) | None |
-| Small datasets (<10k rows) | None |
-
 ## Claude Code Integration Options
 
 ### Option 1: ClaudeR Package (RStudio ↔ Claude)
@@ -134,7 +55,6 @@ Source: https://github.com/K-Dense-AI/claude-scientific-skills
 Custom skill at `~/.claude/skills/r-dev/SKILL.md` covering:
 - R environment commands
 - Package management
-- GPU acceleration (torch/tensorflow)
 - Code style guidelines
 - Common patterns and debugging
 
@@ -186,9 +106,7 @@ python3 -m venv .venv && source .venv/bin/activate && pip install mcp httpx
 
 ## Open Questions / TODOs
 
-- [ ] Decide between torch vs tensorflow based on use case
 - [x] Set up CLI coding agent skill for R development
 - [x] Install ClaudeR package and MCP integration
-- [ ] Test GPU acceleration with a sample workflow
 - [ ] Install scientific-skills plugin (optional, for bioinformatics)
 - [ ] Test R MCP server in a new Claude Code session
