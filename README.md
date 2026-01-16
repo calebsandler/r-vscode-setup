@@ -34,6 +34,7 @@ r-vscode-setup/
 ├── codex/             # Codex CLI optimized instructions
 │   ├── vscode-r-setup.md
 │   ├── validation.md
+│   ├── mcp-setup.md
 │   └── troubleshooting.md
 ├── claude/            # Claude Code optimized instructions
 │   ├── r-setup-notes.md
@@ -55,9 +56,20 @@ See `claude/r-setup-notes.md` for torch vs tensorflow guidance:
 - **torch**: Best for custom ML models, large matrix ops
 - **tensorflow/keras**: Best for standard deep learning, pre-built architectures
 
-## ClaudeR MCP Integration
+## MCP Integration
 
-To enable R tools in Claude Code:
+### Codex CLI
+
+To enable R tools in Codex CLI using mcptools:
+```bash
+codex mcp add r-mcptools -- Rscript -e "mcptools::mcp_server()"
+```
+
+See `codex/mcp-setup.md` for full setup instructions.
+
+### Claude Code
+
+To enable R tools in Claude Code using ClaudeR:
 ```bash
 claude mcp add r-studio
 ```

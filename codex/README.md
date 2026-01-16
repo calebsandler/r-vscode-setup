@@ -1,17 +1,17 @@
 # Codex R Workspace Guide
 
-Use these files to set up VS Code for R development on this machine and keep
-the process repeatable.
+Setup files for VS Code R development with Codex CLI integration.
 
-## Order
+## Setup Order
 
-1) `codex/vscode-r-setup.md`
-2) `codex/validation.md`
-3) `codex/troubleshooting.md`
+1. `vscode-r-setup.md` - VS Code and R configuration
+2. `validation.md` - Verify the setup works
+3. `mcp-setup.md` - Connect Codex CLI to R via MCP
+4. `troubleshooting.md` - Common fixes
 
-## Ground rules
+## Ground Rules
 
-- Prefer VS Code over RStudio for development.
-- Use the user R library unless told otherwise.
-- Use the full `code` CLI path if `code` is not in PATH.
+- Prefer VS Code over RStudio for development
+- Use the user R library unless told otherwise
+- Use full `code` CLI path if not in PATH
 
