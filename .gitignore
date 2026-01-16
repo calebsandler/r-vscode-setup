@@ -1,0 +1,40 @@
+# R artifacts
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj.user
+.Ruserdata
+
+# R package build artifacts
+*.tar.gz
+*.Rcheck/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# VS Code
+.vscode/settings.json
+!.vscode/extensions.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor backup files
+*~
+*.swp
+*.swo
+*.bak
+
+# Logs
+*.log
+
+# Output directories
+output/
+figures/
