@@ -24,7 +24,7 @@ Template for configuring VS Code for R development on macOS Apple Silicon. Inclu
 | AI Tool | Setup Guide | Description |
 |---------|-------------|-------------|
 | **Codex CLI** | `codex/vscode-r-setup.md` | Streamlined setup with validation & troubleshooting |
-| **Claude Code** | `claude/r-setup-notes.md` | Detailed notes with GPU acceleration & MCP integration |
+| **Claude Code** | `claude/r-setup-notes.md` | Detailed notes with MCP integration |
 
 ## Structure
 
@@ -50,12 +50,6 @@ r-vscode-setup/
 | R executable | `/opt/homebrew/bin/R` |
 | R version | 4.5+ |
 | VS Code extensions | REditorSupport.r, RDebugger.r-debugger |
-
-## GPU Acceleration
-
-See `claude/r-setup-notes.md` for torch vs tensorflow guidance:
-- **torch**: Best for custom ML models, large matrix ops
-- **tensorflow/keras**: Best for standard deep learning, pre-built architectures
 
 ## MCP Integration
 

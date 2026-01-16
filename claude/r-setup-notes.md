@@ -102,7 +102,7 @@ python3 -m venv .venv && source .venv/bin/activate && pip install mcp httpx
 
 ### Global Skill Created
 - Location: `~/.claude/skills/r-dev/SKILL.md`
-- Provides: R environment commands, package management, GPU setup, debugging
+- Provides: R environment commands, package management, debugging
 
 ## Open Questions / TODOs
 
